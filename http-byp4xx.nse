@@ -10,9 +10,9 @@ Resources
 
 ---
 -- @usage
--- nmap --script byp4xx.nse <target>
--- nmap --script bypass.nse --script-args="uri=/admin,redirect=false" <target> -p 80 
--- nmap --script bypass.nse --script-args="uri=/admin,redirect=true" <target> -p 443 
+-- nmap --script http-byp4xx.nse <target>
+-- nmap --script http-byp4xx.nse --script-args="uri=/admin,redirect=false" <target> -p 80 
+-- nmap --script http-byp4xx.nse --script-args="uri=/admin,redirect=true" <target> -p 443 
 --
 -- @output
 -- PORT   STATE SERVICE
@@ -65,8 +65,8 @@ portrule = shortport.port_or_service( {80, 443}, {"http", "https"}, "tcp", "open
 ---
 action = function(host, port)
   stdnse.debug1("Running byp4xx.nse")
-  local base_uri = stdnse.get_script_args("http-4xx-bypass.uri") or '/'
-  local redirect = stdnse.get_script_args("http-4xx-bypass.redirect") or true
+  local base_uri = stdnse.get_script_args("http-byp4xx.uri") or '/'
+  local redirect = stdnse.get_script_args("http-byp4xx.redirect") or true
   local localhost = "127.0.0.1"
   local output = stdnse.output_table()
 
