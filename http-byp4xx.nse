@@ -232,10 +232,10 @@ action = function(host, port)
   output.uris[#output.uris + 1] = ("%s - %s - %s - %s"):format(response.status, response.header["content-length"] or 0 , base_uri, technique)
 
     -- GET w X-Forwarded-For
-    local technique = "GET Request (X-Forwarded-For) #2"
-    local header = { ["X-Forwarded-For"] = port.service .. '://' .. localhost }
-    local response = http.generic_request(host, port, "GET", base_uri, {header = header, redirect_ok=redirect})
-    output.uris[#output.uris + 1] = ("%s - %s - %s - %s"):format(response.status, response.header["content-length"] or 0 , base_uri, technique)
+  local technique = "GET Request (X-Forwarded-For) #2"
+  local header = { ["X-Forwarded-For"] = port.service .. '://' .. localhost }
+  local response = http.generic_request(host, port, "GET", base_uri, {header = header, redirect_ok=redirect})
+  output.uris[#output.uris + 1] = ("%s - %s - %s - %s"):format(response.status, response.header["content-length"] or 0 , base_uri, technique)
   
 
   -- GET w X-Remote-IP
