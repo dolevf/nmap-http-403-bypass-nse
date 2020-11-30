@@ -129,7 +129,13 @@ action = function(host, port)
   local response = http.generic_request(host, port, "PATCH", base_uri, default_options)
   output.uris[#output.uris + 1] = ("%s - %s - %s - %s"):format(response.status, response.header["content-length"] or 0 , base_uri, technique)
 
-  -- Bug Bounty Compilation
+  
+  -- GET /
+  local technique = "GET Request (/)"
+  local response = http.get(host, port, '/' .. base_uri, nil, nil, default_options)
+  output.uris[#output.uris + 1] = ("%s - %s - %s - %s"):format(response.status, response.header["content-length"] or 0 , base_uri, technique)
+
+
   -- GET %2e
   local technique = "GET Request (%2e)"
   local response = http.get(host, port, '/%2e' .. base_uri, nil, nil, default_options)
