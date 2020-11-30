@@ -4,7 +4,8 @@ Attempts to bypass 403 Forbidden via different methods.
 NSE implementation of byp4ss.sh
 
 Resources
-* Original: https://github.com/lobuhi/byp4xx/blob/main/byp4xx.sh
+* https://github.com/lobuhi/byp4xx
+* https://github.com/iamj0ker/bypass-403
 
 ]]
 
